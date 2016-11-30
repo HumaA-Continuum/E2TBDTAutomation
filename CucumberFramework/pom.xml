@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>continuum</groupId>
-  <artifactId>cucumber</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <artifactId>E2TAutomation</artifactId>
+  <version>0.0.1</version>
   <packaging>jar</packaging>
 
-  <name>CucumberFramework</name>
+  <name>E2TAutomation</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -99,20 +99,7 @@
 			<artifactId>guice</artifactId>
 			<version>4.1.0</version>
 		</dependency>
-		             <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.6</version>
-       </dependency>
-       
-       <!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
-      <dependency>
-         <groupId>javax.mail</groupId>
-         <artifactId>javax.mail-api</artifactId>
-         <version>1.5.6</version>
-      </dependency>
-      
+	               
         <dependency>
          <groupId>org.apache.poi</groupId>
          <artifactId>poi</artifactId>
@@ -131,6 +118,29 @@
           <version>1.1.1</version>
       </dependency>
        
+  <dependency>
+    <groupId>continuum</groupId>
+    <artifactId>cucumber</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <scope>system</scope>
+    <systemPath>${project.basedir}/lib/cucumber-0.0.1-SNAPSHOT.jar</systemPath>
+</dependency>
+
+
+<dependency>
+    <groupId>com.sun.mail</groupId>
+    <artifactId>javax.mail</artifactId>
+    <version>1.5.2</version>
+</dependency>
+
+
+ <dependency>
+    <groupId>com.microsoft.sqlserver</groupId>
+    <artifactId>sqljdbc4-3.0</artifactId>
+    <version>4-3.0</version>
+    <scope>system</scope>
+    <systemPath>${project.basedir}/lib/sqljdbc4-3.0.jar</systemPath>
+</dependency>
 		             
 	</dependencies>  
       
@@ -160,6 +170,7 @@
          <configuration>
 					<source>${jdk.level}</source>
 					<target>${jdk.level}</target>
+					  <compilerArgument>-Werror</compilerArgument>
 				</configuration>
         </plugin>
       
@@ -180,10 +191,12 @@
             </execution>
         </executions>
      </plugin>
+     
+        
 	</plugins>
 	</pluginManagement>
 	
-
+      
     <testResources>
         <testResource>
             <directory>src/test/resources</directory>
